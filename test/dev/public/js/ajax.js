@@ -61,13 +61,6 @@ function Ajax(o){
       }); 
   };
 
-  /**
-   * SO WE GOTTA FIX THE TIMEOUT OURSELF!
-   * SO WE GOTTA FIX THE TIMEOUT OURSELF!
-   * SO WE GOTTA FIX THE TIMEOUT OURSELF!
-   */
-  //req.timeout = o.timeout;
-
 
   // Bind event handler functions to req
   req.onreadystatechange = onreadystatechange 
@@ -75,6 +68,9 @@ function Ajax(o){
 
 
   req.open(o.method, o.url, true);
+
+  // Timeout has to be set AFTER req.open cuz of IE o.O
+  req.timeout = o.timeout;
 
   // Make sure data is OK
   if(typeof o.data === 'function')
