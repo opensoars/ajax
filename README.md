@@ -11,6 +11,7 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 ### Description
 
+### API
 
 ### Examples
 A minimal example
