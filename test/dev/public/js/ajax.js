@@ -10,7 +10,7 @@ function Ajax(o){
 
   o.method  = o.method  || 'GET';
   o.data    = o.data    || '';
-  o.timeout = o.timeout || 1000;
+  o.timeout = o.timeout || 5000;
 
 
   this.doneCb = undefined;
