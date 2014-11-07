@@ -33,6 +33,11 @@
       url: '/does_not_end'
     }).done(onDone).fail(onFail);
 
+    new Ajax({
+      url: '/does_not_end',
+      timeout: 1000,
+    }).done(onDone).fail(onFail);
+
   </script>
 
 </body>
