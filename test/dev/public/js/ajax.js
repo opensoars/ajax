@@ -16,19 +16,25 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
+  this.doneCalled = false;
+  this.failCalled = false;
+
   // Let's create the XMLHttpRequest
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function (){
     if(this.readyState === 4){
-      console.log(this);
-
       var res = this.response;
 
       // Is the content-type set to JSON?
       if(/application\/json/.test(this.getAllResponseHeaders()))
         res = JSON.parse(res);
       
+      if(this.doneCalled === false){
+        this.doneCalled = true;
+        self.doneCb(res); 
+      }
+
     }
   };
 
