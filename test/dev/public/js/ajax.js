@@ -86,13 +86,13 @@ function Ajax(o){
   return this;
 }
 
-// Set doneCb to the cb function given
+
 Ajax.prototype.done = function (cb){
   this.doneCb = cb;
   return this;
 };
 
-// Set failCb to the cb function given
+
 Ajax.prototype.fail = function (cb){
   this.failCb = cb;
   return this;
