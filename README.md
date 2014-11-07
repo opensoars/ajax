@@ -10,9 +10,9 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 
 ### API description
-Coming SOON.
 
 ### Example
+A minimal example
 ```js
 new Ajax({
   url: '/someResource',
