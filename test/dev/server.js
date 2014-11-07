@@ -35,8 +35,8 @@ app.post('/login', function (req, res){
 
 app.post('/no_res', function (req, res){
 
-  
-  
+  console.log('Not ending request incoming');
+
 });
 
 
