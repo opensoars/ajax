@@ -17,7 +17,6 @@ function Ajax(o){
   this.failCb = undefined;
 
 
-
   // Let's create the XMLHttpRequest
   var req = new XMLHttpRequest();
 
@@ -34,20 +33,19 @@ function Ajax(o){
         
         if(completed === false){
           completed = true;
-          self.doneCb(res); 
+          if(self.doneCb) self.doneCb(res); 
         }
       }
       else {
         if(completed === false){
           completed = true;
-          self.failCb({
+
+          if(self.failCb) self.failCb({
             desc: 'Status was not 200 or 304',
             status: this.status
           }); 
         }
       }
-
-    
   };
 
   // 3rd arg true cuz we only use async ajax

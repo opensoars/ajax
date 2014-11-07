@@ -19,6 +19,8 @@ app.use(function (req, res, next){
 
 app.post('/login', function (req, res){
 
+  console.log(req.body);
+
   res.json({
     status: 'succes',
     time: new Date().getTime()
