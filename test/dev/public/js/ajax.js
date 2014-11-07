@@ -16,8 +16,8 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
-  this.doneCalled = false;
-  this.failCalled = false;
+  var doneCalled = false,
+      failCalled = false;
 
   // Let's create the XMLHttpRequest
   var req = new XMLHttpRequest();
@@ -30,8 +30,8 @@ function Ajax(o){
       if(/application\/json/.test(this.getAllResponseHeaders()))
         res = JSON.parse(res);
       
-      if(this.doneCalled === false){
-        this.doneCalled = true;
+      if(doneCalled === false){
+        doneCalled = true;
         self.doneCb(res); 
       }
 
