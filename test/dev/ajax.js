@@ -46,9 +46,9 @@ function Ajax(o){
           has_completed = true;
 
           if(self.failCb) self.failCb({
-            desc: 'Status was neiter 200 or 304',
+            desc: 'Status was not 200 or 304',
             status: this.status,
-            res: this.response
+            res: this.res
           }); 
         }
       }

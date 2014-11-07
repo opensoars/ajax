@@ -16,14 +16,25 @@
         p: 'password1'
       },
     }).done(function (res){
-
       console.log(res);
-
     }).fail(function (err){
-
       console.log(err);
-
     });
+
+
+    new Ajax({
+      url: '/does_not_exist',
+      method: 'POST',
+      data: {
+        u: 'username1',
+        p: 'password1'
+      },
+    }).done(function (res){
+      console.log(res);
+    }).fail(function (err){
+      console.log(err);
+    });
+
 
   </script>
 

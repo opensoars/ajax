@@ -12,6 +12,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(function (req, res, next){
   var d = ''; req.on('data', function (c){ d += c; });
   req.on('end', function (){
+
+    // Let's try to parse the data
+    try { d = JSON.parse(d); }
+    catch(e){}
+
     req.body = d;
     next();
   });
@@ -19,13 +24,19 @@ app.use(function (req, res, next){
 
 app.post('/login', function (req, res){
 
-  console.log(req.body);
-
   res.json({
     status: 'succes',
-    time: new Date().getTime()
+    time: new Date().getTime(),
+    u: req.body.u
   });
 
+});
+
+
+app.post('/no_res', function (req, res){
+
+  
+  
 });
 
 
