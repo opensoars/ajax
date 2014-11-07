@@ -1,4 +1,7 @@
 function Ajax(o){
+
+  var self = this;
+
   o = o || {};
 
   // A url is required
@@ -17,7 +20,16 @@ function Ajax(o){
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function (){
-    console.log(this);
+    if(this.readyState === 4){
+      console.log(this);
+
+      var res = this.response;
+
+      // Is the content-type set to JSON?
+      if(/application\/json/.test(this.getAllResponseHeaders()))
+        res = JSON.parse(res);
+      
+    }
   };
 
   // 3rd arg true cuz we only use async ajax
