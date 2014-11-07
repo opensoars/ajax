@@ -11,7 +11,7 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 ### API description
 
-### Example
+### Examples
 A minimal example
 ```js
 new Ajax({
