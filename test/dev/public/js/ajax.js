@@ -16,23 +16,30 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
-  var doneCalled = false,
-      failCalled = false;
+
 
   // Let's create the XMLHttpRequest
   var req = new XMLHttpRequest();
 
+  var completed = false;
+
   req.onreadystatechange = function (){
     if(this.readyState === 4){
-      var res = this.response;
 
-      // Is the content-type set to JSON?
-      if(/application\/json/.test(this.getAllResponseHeaders()))
-        res = JSON.parse(res);
-      
-      if(doneCalled === false){
-        doneCalled = true;
-        self.doneCb(res); 
+      if(this.status === 200){
+        var res = this.response;
+
+        // Is the content-type set to JSON?
+        if(/application\/json/.test(this.getAllResponseHeaders()))
+          res = JSON.parse(res);
+        
+        if(completed === false){
+          completed = true;
+          self.doneCb(res); 
+        }
+      }
+      else{
+        
       }
 
     }
@@ -41,19 +48,17 @@ function Ajax(o){
   // 3rd arg true cuz we only use async ajax
   req.open(o.method, o.url, true);
 
-  /**
-   * Make our data ready for use
-   * We do not accept functions
-   * When data is of type object, we stringify it
-   */
-
+  // We do not accept functions as data
   if(typeof o.data === 'function')
     throw 'Ajax cannot send a function';
 
+  // If our data is an object, we JSON stringify it
   if(typeof o.data === 'object')
     o.data = JSON.stringify(o.data);
 
+  // Let's send the request along with our data
   req.send(o.data);
+
 
   return this;
 }
