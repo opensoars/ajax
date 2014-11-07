@@ -3,71 +3,72 @@
  * @param o {object}  Options
  */
 function Ajax(o){
-
   var self = this;
-
   o = o || {};
 
-  // A url is required
   if(!o.url) throw 'Ajax needs a url to make the request to';
 
-  // We default to the method GET
-  o.method = o.method || 'GET';
+  o.method  = o.method  || 'GET';
+  o.data    = o.data    || '';
+  o.timeout = o.timeout || 1000;
 
-  // We default to an empty data string
-  o.data = o.data || '';
 
-  // Callback function properties
   this.doneCb = undefined;
   this.failCb = undefined;
 
+  var has_completed = false;
 
-  // Let's create the XMLHttpRequest
+
   var req = new XMLHttpRequest();
 
-  var has_completed = false;
+  req.timeout = 1000;
+
+  function done(res){
+    if(has_completed === false){
+      has_completed = true;
+      if(self.doneCb) self.doneCb(res); 
+    }
+    else throw '`has_completed === true`. Already called done or fail';
+  }
+
+  function fail(res){
+    if(has_completed === false){
+      has_completed = true;
+      if(self.failCb) self.failCb(res); 
+    }
+    else throw '`has_completed === true`. Already called done or fail';
+  }
+
+  req.ontimeout = function (){
+
+  };
+
 
   req.onreadystatechange = function (){
     if(this.readyState === 4)
       if(this.status === 200 || this.status === 304){
-        var res = this.response;
 
-        // If Content-Type is JSON, we parse the response
         if(/application\/json/.test(this.getAllResponseHeaders()))
-          res = JSON.parse(res);
-        
-        if(has_completed === false){
-          has_completed = true;
-          if(self.doneCb) self.doneCb(res); 
-        }
-      }
-      else {
-        if(has_completed === false){
-          has_completed = true;
+          this.response = JSON.parse(this.response);
 
-          if(self.failCb) self.failCb({
-            desc: 'Status was neiter 200 or 304',
-            status: this.status,
-            res: this.response
-          }); 
-        }
+        done(this.response);
       }
+      else fail({
+        desc: 'HTTP status code was neiter a 200 nor 304',
+        status: this.status,
+        res: this.response
+      }); 
   };
 
-  // 3rd arg true cuz we only use async ajax
   req.open(o.method, o.url, true);
 
-  // We do not accept functions as data
   if(typeof o.data === 'function')
     throw 'Ajax cannot send a function';
 
-  // If our data is an object, we JSON stringify it
   if(typeof o.data === 'object')
     o.data = JSON.stringify(o.data);
 
-  // Let's send the request along with our data
   req.send(o.data);
-
 
   return this;
 }

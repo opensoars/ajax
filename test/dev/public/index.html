@@ -8,6 +8,9 @@
 
   <script>
 
+    function onDone(res){ console.log(res); }
+    function onFail(res){ console.log(res); }
+
     new Ajax({
       url: '/login',
       method: 'POST',
@@ -15,12 +18,7 @@
         u: 'username1',
         p: 'password1'
       },
-    }).done(function (res){
-      console.log(res);
-    }).fail(function (err){
-      console.log(err);
-    });
-
+    }).done(onDone).fail(onFail);
 
     new Ajax({
       url: '/does_not_exist',
@@ -29,12 +27,11 @@
         u: 'username1',
         p: 'password1'
       },
-    }).done(function (res){
-      console.log(res);
-    }).fail(function (err){
-      console.log(err);
-    });
+    }).done(onDone).fail(onFail);
 
+    new Ajax({
+      url: '/does_not_end'
+    }).done(onDone).fail(onFail);
 
   </script>
 

@@ -33,7 +33,7 @@ app.post('/login', function (req, res){
 });
 
 
-app.post('/no_res', function (req, res){
+app.get('/does_not_end', function (req, res){
 
   console.log('Not ending request incoming');
 
