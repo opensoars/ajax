@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>ajax</title>
+</head>
+<body>
+
+  <script src='js/ajax.js'></script>
+
+  <script>
+
+    new Ajax({
+      url: '/login',
+      method: 'POST',
+      data: {
+        u: 'username1',
+        p: 'password1'
+      },
+    }).done(function (res){
+
+      console.log(res);
+
+    }).fail(function (err){
+
+      console.log(err);
+
+    });
+
+  </script>
+
+</body>
+</html>
