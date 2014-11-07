@@ -13,18 +13,20 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
+  // Let's create the XMLHttpRequest
+  var req = new XMLHttpRequest();
 
-  this.req = new XMLHttpRequest();
-
-  this.req.onreadystatechange = function (){
+  req.onreadystatechange = function (){
     console.log(this);
   };
 
   // 3rd arg true cuz we only use async ajax
-  this.req.open(o.method, o.url, true);
+  req.open(o.method, o.url, true);
 
   /**
    * Make our data ready for use
+   * We do not accept functions
+   * When data is of type object, we stringify it
    */
 
   if(typeof o.data === 'function')
@@ -33,6 +35,7 @@ function Ajax(o){
   if(typeof o.data === 'object')
     o.data = JSON.stringify(o.data);
 
+  req.send(o.data);
 
   return this;
 }
