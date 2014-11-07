@@ -24,9 +24,8 @@ function Ajax(o){
   var completed = false;
 
   req.onreadystatechange = function (){
-    if(this.readyState === 4){
-
-      if(this.status === 200){
+    if(this.readyState === 4)
+      if(this.status === 200 || this.status === 304){
         var res = this.response;
 
         // Is the content-type set to JSON?
@@ -38,11 +37,17 @@ function Ajax(o){
           self.doneCb(res); 
         }
       }
-      else{
-        
+      else {
+        if(completed === false){
+          completed = true;
+          self.failCb({
+            desc: 'Status was not 200 or 304',
+            status: this.status
+          }); 
+        }
       }
 
-    }
+    
   };
 
   // 3rd arg true cuz we only use async ajax
