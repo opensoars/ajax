@@ -11,8 +11,6 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 ### Description
 
-To initiate a new AJAX request: `new Ajax()`. Which you can pass an options object like so: `new Ajax({ url: '/someResource' })`. You can then add event handlers to the request by simply typing: `new Ajax({ url: '/someResource' }).done(whenDone)`
-
 
 ### Examples
 A minimal example
