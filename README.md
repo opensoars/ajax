@@ -45,7 +45,7 @@ new Ajax(options);
 
 ##### Adding callback functions
 
-
+---
 
 ### Examples
 A minimal example
