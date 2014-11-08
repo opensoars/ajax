@@ -43,6 +43,8 @@ var options = {
 new Ajax(options);
 ```
 
+##### Adding callback functions
+
 
 
 ### Examples
