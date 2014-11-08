@@ -11,14 +11,14 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 ### API
 
-##### Initialize a new AJAX request
+#### Initialize a new AJAX request
 ```js
 var options = {};
 
 new Ajax(options);
 ```
 
-##### Options
+#### Options
 ```js
 var options = {
 
@@ -42,7 +42,7 @@ var options = {
 };
 ```
 
-##### Callback functions
+#### Callback functions
 We use two types of callbacks:
 
 1. `done` - Gets called when a request is completed succesfuly.
