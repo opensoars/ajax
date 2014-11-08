@@ -18,6 +18,31 @@ var options = {};
 new Ajax(options);
 ```
 
+##### Options
+```js
+var options = {
+
+  // Required
+  url: '/someResource',
+
+  // Defaults to GET
+  method: 'POST',
+
+  // Defaults to 5000 ms
+  timeout: 1000,
+
+  // Can be an object, array, string or number
+  // When it's valid JSON, it will be automaticly stringified
+  data: {
+    a: 'b',
+    hello: 'world'
+  }
+
+};
+
+new Ajax(options);
+```
+
 
 
 ### Examples
