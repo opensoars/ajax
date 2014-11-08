@@ -61,6 +61,13 @@ Ajax({
 });
 ```
 
+The fail `res` looks like this:
+```js
+{
+  desc: 'Description of why the request failed',
+  status: 'The HTTP status code, this is 0 when the request timed out.'
+}
+```
 
 ---
 
