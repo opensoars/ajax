@@ -48,9 +48,9 @@ We use two types of callbacks:
 1. `done` - Gets called when a request is completed succesfuly.
 2. `fail` - Gets called when a request fails for whatever reason.
 
-These can be added to the request simply chaining calls.
+These can be added to the request simply chaining calls after the Ajax initialization.
 ```js
-Ajax({
+new Ajax({
   url: '/someResource'
 }).done(function (res){
   // The response from the request is now usable as a parameter
