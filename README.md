@@ -45,8 +45,8 @@ var options = {
 ##### Callback functions
 We use two types of callbacks:
 
-1. `done` - 
-2. `fail` - 
+1. `done` - Gets called when a request is completed succesfuly.
+2. `fail` - Gets called when a request fails for whatever reason.
 
 
 These can be added to the request simply chaining calls.
