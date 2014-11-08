@@ -44,6 +44,7 @@ var options = {
 
 ##### Callback functions
 We use two types of callbacks:
+
 1. done
 2. fail
 
