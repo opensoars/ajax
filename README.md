@@ -11,7 +11,7 @@ We do not want to require useless code we don't use (like jQuery). This library 
 
 ### API
 
-###### Initialize a new AJAX request
+##### Initialize a new AJAX request
 ```js
 var options = {};
 
