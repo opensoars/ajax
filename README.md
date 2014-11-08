@@ -42,7 +42,21 @@ var options = {
 };
 ```
 
-##### Adding callback functions
+##### Callback functions
+We use two types of callbacks:
+1. done
+2. fail
+
+
+These can be added to the request simply chaining calls.
+```js
+Ajax({
+  url: '/someResource'
+}).done(function (res){
+
+});
+```
+
 
 ---
 
