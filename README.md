@@ -35,7 +35,8 @@ var options = {
   // When it's valid JSON, it will be automaticly stringified
   data: {
     a: 'b',
-    hello: 'world'
+    hello: 'world',
+    selected: [1, 3, 4, 5]
   }
 
 };
