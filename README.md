@@ -61,6 +61,11 @@ new Ajax({
 });
 ```
 
+Both callback functions take 1 parameter.
+1. `done` - The request response, either sting or JSON
+2. `fail` - Obect describing why the request failed.
+
+
 The fail `res` looks like this:
 ```js
 {
