@@ -79,9 +79,8 @@ A minimal example
 new Ajax({
   url: '/someResource',
 }).done(function (res){
-  // res is the request it's response
-  // Which if it's JSON, will be parsed automaticly
+  writeSucces(res);
 }).fail(function (res){
-  // res is an error description 
+  writeFail(res);
 });
 ```
