@@ -8,6 +8,11 @@ app.set('port', 80);
 // Middleware
 app.use(express.static(__dirname + '/public'));
 
+app.use(function (req, res, next){
+  console.log(req.method + ' ' + req.url);
+  next();
+});
+
 // Unorthodox body parser
 app.use(function (req, res, next){
   var d = ''; req.on('data', function (c){ d += c; });
