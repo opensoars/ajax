@@ -6,7 +6,8 @@
   "version": "0.0.1",
 
   "scripts": {
-    "server": "cd test/dev && node server.js"
+    "server": "cd test/dev && node server.js",
+    "makeProductionReady": "node copyFromDev.js"
   },
 
   "dependencies": {
