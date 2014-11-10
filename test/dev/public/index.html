@@ -11,6 +11,7 @@
     function onDone(res, req){ console.log(res); }
     function onFail(res){ console.log(res); }
 
+
     new Ajax({
       url: '/login',
       method: 'POST',
@@ -37,6 +38,7 @@
       url: '/does_not_end',
       timeout: 1000,
     }).done(onDone).fail(onFail);
+
 
   </script>
 

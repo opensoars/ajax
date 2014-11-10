@@ -18,8 +18,7 @@ function Ajax(o){
 
 
   var req = new XMLHttpRequest(),
-      has_completed = false,
-      has_timed_out = false;
+      has_completed = false;
 
 
   function done(res){
