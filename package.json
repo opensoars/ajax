@@ -1,0 +1,24 @@
+{
+  "name": "ajax",
+
+  "description": "Simple ajax library",
+
+  "version": "0.0.1",
+
+  "scripts": {
+    "server": "cd test/dev && node server.js"
+  },
+
+  "dependencies": {
+  },
+
+  "devDependencies": {
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opensoars/ajax"
+  },
+
+  "readmeFilename": "README.md"
+}

@@ -42,3 +42,5 @@ app.get('/does_not_end', function (req, res){
 
 // Start listening
 app.listen(app.get('port'));
+
+console.log('Server running at port:' + app.get('port'));
