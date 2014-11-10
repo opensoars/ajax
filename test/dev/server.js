@@ -1,8 +1,8 @@
 var express = require('express'),
     app = express();
 
-// Config
-app.set('port', 80);
+// Config, we use a weird port because of Travis
+app.set('port', 6849);
 
 
 // Middleware
