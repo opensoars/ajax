@@ -6,14 +6,15 @@
   "version": "0.0.1",
 
   "scripts": {
-    "server": "cd test/dev && node server.js",
-    "makeProductionReady": "node copyFromDev.js"
+    "server": "node test/dev/server.js",
+    "makeProductionReady": "node makeProductionReady.js"
   },
 
   "dependencies": {
   },
 
   "devDependencies": {
+    "uglify-js": "*"
   },
 
   "repository": {
