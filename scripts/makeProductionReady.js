@@ -16,16 +16,21 @@ fs.readFile(SCRIPT_LOCATION, 'utf8', function (err, script){
   fs.writeFile(PRODUCTION_LOCATION, script, function (err){
     if(err) throw 'Could not write production script at: '
       + PRODUCTION_LOCATION + '\n' + err;
+
+    // Uglify script from string we've already got
+    var uglified = uglify.minify(script, {fromString: true}),
+        uglified_script = uglified.code;
+
+    // Write uglified output to ajax.min.js
+    fs.writeFile(PRODUCTION_LOCATION_MIN, uglified_script, function (err){
+      if(err) throw 'Could not write production minified script at: '
+        + PRODUCTION_LOCATION + '\n' + err;
+      
+      console.log('makeProductionReady.js ran succesfuly');
+    });
+
   });
 
-  // Uglify script from string we've already got
-  var uglified = uglify.minify(script, {fromString: true}),
-      uglified_script = uglified.code;
 
-  // Write uglified output to ajax.min.js
-  fs.writeFile(PRODUCTION_LOCATION_MIN, uglified_script, function (err){
-    if(err) throw 'Could not write production minified script at: '
-      + PRODUCTION_LOCATION + '\n' + err;
-  });
 
 });
