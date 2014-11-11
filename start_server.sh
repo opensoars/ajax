@@ -1,1 +1,1 @@
-node "test/dev/server.js"
+node test/dev/server.js &
