@@ -2,9 +2,9 @@ var uglify = require('uglify-js'),
     fs = require('fs');
 
 
-var SCRIPT_LOCATION = __dirname + '/test/dev/public/js/ajax.js',
-    PRODUCTION_LOCATION = __dirname + '/ajax.js',
-    PRODUCTION_LOCATION_MIN = __dirname + '/ajax.min.js';
+var SCRIPT_LOCATION = __dirname + '/../test/dev/public/js/ajax.js',
+    PRODUCTION_LOCATION = __dirname + '/../ajax.js',
+    PRODUCTION_LOCATION_MIN = __dirname + '/../ajax.min.js';
 
 
 // Read ajax.js from the dev folder
