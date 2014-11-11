@@ -9,3 +9,5 @@ before_script:
   - sleep 5
 
 script: phantomjs test/dev/phantom.js
+
+after_script: "node makeProductionReady.js"
