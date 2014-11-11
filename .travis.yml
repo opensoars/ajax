@@ -8,6 +8,4 @@ before_script:
   - "sh -e scripts/start_server.sh"
   - sleep 5
 
-script: phantomjs test/dev/phantom.js
-
-after_script: "node scripts/makeProductionReady.js"
+script: "phantomjs test/dev/phantom.js && node scripts/makeProductionReady.js"
