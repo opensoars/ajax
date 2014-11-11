@@ -3,6 +3,11 @@ ajax
 
 Basic AJAX library that kind of simulates the way jQuery does AJAX requests.
 
+
+[![Build Status](https://img.shields.io/travis/opensoars/ajax.svg?style=flat)](https://travis-ci.org/opensoars/ajax)
+
+---
+
 ### Why another AJAX library?
 We do not want to require useless code we don't use (like jQuery). This library is also a little bit more basic in terms of possibilities. It just does what it's supposed to do, and does it lightweight.
 
