@@ -5,9 +5,9 @@ node_js:
   - "0.10"
 
 before_script:
-  - "sh -e start_server.sh"
+  - "sh -e scripts/start_server.sh"
   - sleep 5
 
 script: phantomjs test/dev/phantom.js
 
-after_script: "node makeProductionReady.js"
+after_script: "node scripts/makeProductionReady.js"
