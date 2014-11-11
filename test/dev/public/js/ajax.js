@@ -48,10 +48,12 @@ function Ajax(o){
     if(this.readyState === 4 && this.status !== 0)
       if(this.status === 200 || this.status === 304){
 
-        if(/application\/json/.test(this.getAllResponseHeaders()))
-          this.response = JSON.parse(this.response);
+        var res = this.response;
 
-        done(this.response);
+        if(/application\/json/.test(this.getAllResponseHeaders()))
+          res = JSON.parse(this.response);
+
+        done(res);
       }
       else fail({
         desc: 'HTTP status code was neiter a 200 nor 304',
