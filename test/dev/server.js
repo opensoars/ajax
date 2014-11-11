@@ -1,4 +1,4 @@
-var express = require('express'),
+var express = require('../../node_modules/express'),
     app = express();
 
 // Config, we use a weird port because of Travis
