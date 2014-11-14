@@ -48,6 +48,9 @@ function Ajax(o){
   }
 
 
+  /**
+   * Event handler functions
+   */
   function ontimeout(){
     fail({
       desc: 'Request timed out after: ' + req.timeout + ' ms',
