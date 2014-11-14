@@ -66,7 +66,6 @@ function Ajax(o){
   };
 
 
-  // Bind event handler functions to req
   req.onreadystatechange = onreadystatechange 
   req.ontimeout = ontimeout;
 
