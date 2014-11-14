@@ -19,9 +19,9 @@ function Ajax(o){
   // Make sure o.data is OK
   if(typeof o.data === 'function') throw 'Ajax cannot send a function';
 
-
   this.doneCb = undefined;
   this.failCb = undefined;
+
 
   /**
    * Scoped variables
