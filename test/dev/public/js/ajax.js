@@ -68,7 +68,7 @@ function Ajax(o){
         res: this.response
       }); 
   };
-  
+
   req.ontimeout = function (){
     fail({
       desc: 'Request timed out after: ' + req.timeout + ' ms',
@@ -82,12 +82,8 @@ function Ajax(o){
   // Timeout has to be set AFTER req.open cuz of IE
   req.timeout = o.timeout;
 
-  // Make sure data is OK
-  if(typeof o.data === 'function')
-    throw 'Ajax cannot send a function';
-
-  if(typeof o.data === 'object')
-    o.data = JSON.stringify(o.data);
+  // Are we sending JSON?
+  if(typeof o.data === 'object') o.data = JSON.stringify(o.data);
 
   req.send(o.data);
 
