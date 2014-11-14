@@ -7,6 +7,9 @@ function Ajax(o){
   var self = this;
   o = o || {};
 
+  /**
+   * Setting up data which is required
+   */
   if(!o.url) throw 'Ajax needs a url to make the request to';
 
   o.method  = o.method  || 'GET';
@@ -17,9 +20,10 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
-
+  
   var req = new XMLHttpRequest(),
       has_completed = false;
+
 
   /**
    * done and fail helper functions
@@ -40,6 +44,7 @@ function Ajax(o){
     }
     else throw '`has_completed === true`. Already called done or fail';
   }
+
 
   function ontimeout(){
     fail({
