@@ -72,7 +72,7 @@ function Ajax(o){
 
   req.open(o.method, o.url, true);
 
-  // Timeout has to be set AFTER req.open cuz of IE o.O
+  // Timeout has to be set AFTER req.open cuz of IE
   req.timeout = o.timeout;
 
   // Make sure data is OK
