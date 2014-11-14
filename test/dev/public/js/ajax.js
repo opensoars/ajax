@@ -51,7 +51,7 @@ function Ajax(o){
   /**
    * Event handler functions
    */
-  function onreadystatechange(){
+  req.onreadystatechange = function (){
     if(this.readyState === 4 && this.status !== 0)
       if(this.status === 200 || this.status === 304){
 
@@ -68,18 +68,13 @@ function Ajax(o){
         res: this.response
       }); 
   };
-
-  function ontimeout(){
+  
+  req.ontimeout = function (){
     fail({
       desc: 'Request timed out after: ' + req.timeout + ' ms',
       status: this.status
     }); 
   }
-
-
-
-  req.onreadystatechange = onreadystatechange 
-  req.ontimeout = ontimeout;
 
 
   req.open(o.method, o.url, true);
