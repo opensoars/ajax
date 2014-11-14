@@ -20,7 +20,9 @@ function Ajax(o){
   this.doneCb = undefined;
   this.failCb = undefined;
 
-  
+  /**
+   * Scoped variables
+   */
   var req = new XMLHttpRequest(),
       has_completed = false;
 
