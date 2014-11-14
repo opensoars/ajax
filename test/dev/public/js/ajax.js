@@ -16,6 +16,9 @@ function Ajax(o){
   o.data    = o.data    || '';
   o.timeout = o.timeout || 5000;
 
+  // Make sure o.data is OK
+  if(typeof o.data === 'function') throw 'Ajax cannot send a function';
+
 
   this.doneCb = undefined;
   this.failCb = undefined;
