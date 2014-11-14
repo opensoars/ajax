@@ -20,7 +20,10 @@ function Ajax(o){
   var req = new XMLHttpRequest(),
       has_completed = false;
 
-
+  /**
+   * done and fail helper functions
+   * Can get called from ontimeout and onreadystatechange
+   */
   function done(res){
     if(has_completed === false){
       has_completed = true;

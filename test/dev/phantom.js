@@ -1,11 +1,11 @@
 var page = require('webpage').create();
-page.open('http://localhost:6789', function (){
+page.open('http://localhost:6789/tests.html', function (){
 
 
-  phantom.exit();
+  setTimeout(function (){
+    page.render('example.png');
+    phantom.exit();
+  }, 5000);
+
+
 });
-
-// Cuz it sometimes won't end?
-setTimeout(function (){
-  phantom.exit();
-}, 5000);

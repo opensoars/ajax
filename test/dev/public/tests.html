@@ -17,10 +17,21 @@
 
   <script>mocha.setup('bdd')</script>
 
+  <script>console.log(blanket);</script>
+
   <script src='js/ajax.js' data-cover></script>
   <script src='js/tests/main.js'></script>
-
   <script>mocha.run();</script>
+
+  <script>
+
+  setTimeout(function (){
+
+    console.log(blanket.getCovVar());
+
+  }, 1500);
+
+  </script>
 
 </body>
 </html>
