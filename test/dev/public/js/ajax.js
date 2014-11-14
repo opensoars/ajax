@@ -82,9 +82,7 @@ function Ajax(o){
   if(typeof o.data === 'object')
     o.data = JSON.stringify(o.data);
 
-
   req.send(o.data);
-
 
   return this;
 }
