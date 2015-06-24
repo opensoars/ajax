@@ -66,7 +66,7 @@ function Ajax(o){
    * @private
    */
   function onreadystatechange(){
-    if(this.readyState === 4 && this.status !== 0)
+    if(this.readyState === 4 && this.status !== 0){
       if(this.status === 200 || this.status === 304){
 
         if(/application\/json/.test(this.getAllResponseHeaders()))
@@ -78,7 +78,8 @@ function Ajax(o){
         desc: 'HTTP status code was neiter a 200 nor 304',
         status: this.status,
         res: this.response
-      }); 
+      });
+    }
   };
 
 
