@@ -3,7 +3,7 @@ ajax
 
 Basic AJAX library that kind of simulates the way jQuery does AJAX requests.
 
-
+[![Inline docs](http://inch-ci.org/github/opensoars/ajax.svg?branch=master)](http://inch-ci.org/github/opensoars/ajax)
 [![Build Status](https://img.shields.io/travis/opensoars/ajax.svg?style=flat)](https://travis-ci.org/opensoars/ajax)
 
 ---
