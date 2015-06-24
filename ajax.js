@@ -7,10 +7,13 @@
  */
 function Ajax(o) {
   var self = this;
-  o = o || {};
+
+  if (!o) {
+    throw 'Ajax needs an options object as its first argument';
+  }
 
   if (!o.url) {
-    throw 'Ajax needs a url to make the request to';
+    throw 'Ajax needs an url to send the request to.';
   }
 
   var req = new XMLHttpRequest(),
@@ -31,8 +34,9 @@ function Ajax(o) {
   function done(res) {
     if (has_completed === false) {
       has_completed = true;
-      if (self.doneCb)
-        self.doneCb(res, req); 
+      if (self.doneCb) {
+        self.doneCb(res, req);
+      }
     } else {
       throw '`has_completed === true`. Already called done or fail';
     }
@@ -114,7 +118,9 @@ function Ajax(o) {
 }
 
 /**
- * @param {function} cb - Callback function to bind.
+ * Binds the passed function to the done event.
+ * @param {function} cb - Callback function to bind
+ * @return {object} this - The Ajax instance, allows for chain calling
  */
 Ajax.prototype.done = function (cb) {
   this.doneCb = cb;
@@ -122,7 +128,9 @@ Ajax.prototype.done = function (cb) {
 };
 
 /**
- * @param {function} cb - Callback function to bind.
+ * Binds the passed function to the fail event.
+ * @param {function} cb - Callback function to bind
+ * @return {object} this - The Ajax instance, allows for chain calling
  */
 Ajax.prototype.fail = function (cb) {
   this.failCb = cb;
