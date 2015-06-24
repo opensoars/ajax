@@ -1,4 +1,9 @@
 /**
+ * @author Sam <opensoars.github.io>
+ */
+
+
+/**
  * Ajax constructor.
  * @param {object} o - Options
  * @return {object} this - Return itself, allows for chain calling
@@ -134,6 +139,7 @@ Ajax.prototype.done = function (cb) {
  * @return {object} this - The Ajax instance, allows for chain calling
  */
 Ajax.prototype.fail = function (cb) {
+
   this.failCb = cb;
   return this;
 };
