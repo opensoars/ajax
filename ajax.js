@@ -20,7 +20,7 @@ function Ajax(o) {
   }
 
   if (!o.url) {
-    throw 'Ajax needs an url to send the request to.';
+    throw 'Ajax needs an url to send the request to';
   }
 
   req = new XMLHttpRequest();
