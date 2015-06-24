@@ -53,7 +53,7 @@ We use two types of callbacks:
 1. `done` - Gets called when a request is completed succesfuly.
 2. `fail` - Gets called when a request fails for whatever reason.
 
-These can be added to the request simply chaining calls after the Ajax initialization.
+These can be added to the request simply by chaining calls after the Ajax initialization.
 ```js
 new Ajax({
   url: '/someResource'
@@ -67,8 +67,9 @@ new Ajax({
 ```
 
 Both callback functions take 1 parameter.
-1. `done` - The request response, either sting or JSON
-2. `fail` - Obect describing why the request failed.
+
+1. `done` - The request response, either a string or an object.
+2. `fail` - Object describing why the request failed.
 
 
 The fail `res` looks like this:
