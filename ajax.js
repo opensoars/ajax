@@ -25,6 +25,7 @@ function Ajax(o){
   /**
    * Gets called when a requests succeeds.
    * @param {string|object} res - Response string, object if JSON
+   * @private
    */
   function done(res){
     if(has_completed === false){
@@ -37,6 +38,7 @@ function Ajax(o){
   /**
    * Gets called when a request fails.
    * @param {object} res - Response object describing the failure
+   * @private
    */
   function fail(res){
     if(has_completed === false){
@@ -46,6 +48,10 @@ function Ajax(o){
     else throw '`has_completed === true`. Already called done or fail';
   }
 
+  /**
+   * Gets called when the specified timeout is exceeded.
+   * @private
+   */
   function ontimeout(){
     fail({
       desc: 'Request timed out after: ' + req.timeout + ' ms',
@@ -53,6 +59,12 @@ function Ajax(o){
     }); 
   }
 
+  /**
+   * Ready state change handler. Either calls done or fail. Depending
+   * on the response status.
+   * @this XMLHttpRequest
+   * @private
+   */
   function onreadystatechange(){
     if(this.readyState === 4 && this.status !== 0)
       if(this.status === 200 || this.status === 304){
