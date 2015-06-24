@@ -1,6 +1,8 @@
 /**
  * Ajax constructor.
  * @param {object} o - Options
+ * @example
+ * new Ajax({ url: '/' }).done(cb).fail(cb);
  */
 function Ajax(o){
   var self = this;
