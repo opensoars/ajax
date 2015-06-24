@@ -7,7 +7,7 @@
 
   "scripts": {
     "server": "node test/dev/server.js",
-    "makeProductionReady": "node makeProductionReady.js"
+    "makeProductionReady": "node scripts/makeProductionReady.js"
   },
 
   "dependencies": {
