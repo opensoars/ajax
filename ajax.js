@@ -1,6 +1,6 @@
 /**
- * Ajax constructor
- * @param o {object}  Options
+ * Ajax constructor.
+ * @param {object} o - Options
  */
 function Ajax(o){
   var self = this;
