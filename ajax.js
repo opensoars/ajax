@@ -22,7 +22,10 @@ function Ajax(o){
   var req = new XMLHttpRequest(),
       has_completed = false;
 
-
+  /**
+   * Gets called when a requests succeeds.
+   * @param {string|object} res - Response string, object if JSON
+   */
   function done(res){
     if(has_completed === false){
       has_completed = true;
@@ -31,6 +34,10 @@ function Ajax(o){
     else throw '`has_completed === true`. Already called done or fail';
   }
 
+  /**
+   * Gets called when a request fails.
+   * @param {object} res - Response object describing the failure
+   */
   function fail(res){
     if(has_completed === false){
       has_completed = true;
