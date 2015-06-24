@@ -6,7 +6,9 @@
  * new Ajax({ url: '/' }).done(cb).fail(cb);
  */
 function Ajax(o) {
-  var self = this;
+  var req,
+      has_completed = false,
+      self = this;
 
   if (!o) {
     throw 'Ajax needs an options object as its first argument';
@@ -16,8 +18,7 @@ function Ajax(o) {
     throw 'Ajax needs an url to send the request to.';
   }
 
-  var req = new XMLHttpRequest(),
-      has_completed = false;
+  req = new XMLHttpRequest();
 
   o.method = o.method || 'GET';
   o.data = o.data || '';
