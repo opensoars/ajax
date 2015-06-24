@@ -9,8 +9,9 @@ function Ajax(o) {
   var self = this;
   o = o || {};
 
-  if(!o.url)
+  if (!o.url) {
     throw 'Ajax needs a url to make the request to';
+  }
 
   var req = new XMLHttpRequest(),
       has_completed = false;
@@ -28,13 +29,13 @@ function Ajax(o) {
    * @private
    */
   function done(res) {
-    if(has_completed === false){
+    if (has_completed === false) {
       has_completed = true;
-      if(self.doneCb)
+      if (self.doneCb)
         self.doneCb(res, req); 
-    }
-    else
+    } else {
       throw '`has_completed === true`. Already called done or fail';
+    }
   }
 
   /**
@@ -43,12 +44,14 @@ function Ajax(o) {
    * @private
    */
   function fail(res) {
-    if(has_completed === false){
+    if (has_completed === false) {
       has_completed = true;
-      if(self.failCb) self.failCb(res, req); 
-    }
-    else
+      if (self.failCb) {
+        self.failCb(res, req);
+      }
+    } else {
       throw '`has_completed === true`. Already called done or fail';
+    }
   }
 
   /**
@@ -69,19 +72,21 @@ function Ajax(o) {
    * @private
    */
   function onreadystatechange() {
-    if(this.readyState === 4 && this.status !== 0){
-      if(this.status === 200 || this.status === 304){
+    if (this.readyState === 4 && this.status !== 0) {
+      if (this.status === 200 || this.status === 304) {
 
-        if(/application\/json/.test(this.getAllResponseHeaders()))
+        if (/application\/json/.test(this.getAllResponseHeaders())) {
           this.response = JSON.parse(this.response);
+        }
 
         done(this.response);
+      } else {
+        fail({
+          desc: 'HTTP status code was neiter a 200 nor 304',
+          status: this.status,
+          res: this.response
+        });
       }
-      else fail({
-        desc: 'HTTP status code was neiter a 200 nor 304',
-        status: this.status,
-        res: this.response
-      });
     }
   };
 
@@ -95,24 +100,30 @@ function Ajax(o) {
 
   // Make sure data is OK, we can't send functions and want to
   // stringify the data if it's JSON.
-  if(typeof o.data === 'function')
+  if (typeof o.data === 'function') {
     throw 'Ajax cannot send a function';
+  }
 
-  if(typeof o.data === 'object')
+  if (typeof o.data === 'object') {
     o.data = JSON.stringify(o.data);
+  }
 
   req.send(o.data);
 
   return this;
 }
 
-
+/**
+ * @param {function} cb - Callback function to bind.
+ */
 Ajax.prototype.done = function (cb) {
   this.doneCb = cb;
   return this;
 };
 
-
+/**
+ * @param {function} cb - Callback function to bind.
+ */
 Ajax.prototype.fail = function (cb) {
   this.failCb = cb;
   return this;
