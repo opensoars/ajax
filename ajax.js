@@ -139,7 +139,6 @@ Ajax.prototype.done = function (cb) {
  * @return {object} this - The Ajax instance, allows for chain calling
  */
 Ajax.prototype.fail = function (cb) {
-
   this.failCb = cb;
   return this;
 };
