@@ -14,8 +14,8 @@
   },
 
   "devDependencies": {
-    "uglify-js": "*",
-    "express": "*"
+    "uglify-js": "2.4.24",
+    "express": "5.0.0"
   },
 
   "repository": {
